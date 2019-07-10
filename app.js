@@ -2,8 +2,8 @@ var express = require('express')
 var app = express()
 
 var bodyParser = require('body-parser')
-app.listen(4500, function(){
-	console.log("start! express server on port 4500");
+app.listen(4300, function(){
+	console.log("start! express server on port 4300");
 
 });
 app.use(express.static('public'))
@@ -38,6 +38,7 @@ app.post('/email_post', function(req,res){
 
 app.post('/ajax_send_email',function(req,res){
 	console.log(req.body.email)
-	var responseData = {'result': 'ok', 'email':req.body.email}
+	//check validation about input value => select db
+	var responseData = {'result': 'ok', 'email' : req.body.email}
 	res.json(responseData)
 });
